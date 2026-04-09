@@ -1,12 +1,12 @@
 package gg.users.userapps.infraestructure.adapters.out.repository.jpa;
 
-import gg.users.userapps.infraestructure.adapters.out.entities.UsuarioEntity;
+import gg.users.userapps.infraestructure.adapters.out.repository.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long> {
-    Optional<UsuarioEntity> findByUsername(String username);
+public interface UserJpaRepository extends JpaRepository<UserEntity, Long> {
+    Optional<UserEntity> findByUsername(String username);
 }

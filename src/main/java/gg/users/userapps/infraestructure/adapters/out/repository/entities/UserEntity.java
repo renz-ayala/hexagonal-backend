@@ -1,7 +1,6 @@
-package gg.users.userapps.infraestructure.adapters.out.entities;
+package gg.users.userapps.infraestructure.adapters.out.repository.entities;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,11 +12,11 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "usuario", schema = "user1")
-public class UsuarioEntity {
+@Table(name = "user", schema = "user1")
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cuenta_id")
+    @Column(name = "user_id")
     private Long cuentaId;
 
     @Column(name = "username", nullable = false, unique = true, length = 50)

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: userApps
+  datasource:
+    url: jdbc:postgresql://${HOST}:${PORT}/${DATABASE}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+server:
+  port: 10102
+  servlet:
+    context-path: /v1/api
+
+jwt:
+  secret:
+    key: ${JWT_KEY}
+  expiration: 3600000

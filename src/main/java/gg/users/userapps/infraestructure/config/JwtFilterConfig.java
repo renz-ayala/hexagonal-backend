@@ -38,7 +38,7 @@ public class JwtFilterConfig extends OncePerRequestFilter {
         token = token.substring(7);
 
         try{
-            Claims claims = jwtServicePort.validarToken(token);
+            Claims claims = jwtServicePort.validateToken(token);
 
             if(claims != null && SecurityContextHolder.getContext().getAuthentication() == null){
                 String username = claims.getSubject();

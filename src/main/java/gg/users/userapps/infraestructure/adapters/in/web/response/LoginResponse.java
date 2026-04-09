@@ -1,4 +1,4 @@
-package gg.users.userapps.infraestructure.adapters.in.response;
+package gg.users.userapps.infraestructure.adapters.in.web.response;
 
 import lombok.Getter;
 import lombok.Setter;

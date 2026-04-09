@@ -1,6 +1,6 @@
 package gg.users.userapps.infraestructure.adapters.out.services;
 
-import gg.users.userapps.domain.model.Usuario;
+import gg.users.userapps.domain.model.User;
 import gg.users.userapps.domain.ports.out.JwtServicePort;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.security.Keys;
@@ -12,9 +12,7 @@ import io.jsonwebtoken.Jwts;
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class JwtServiceAdapter implements JwtServicePort {
@@ -26,11 +24,11 @@ public class JwtServiceAdapter implements JwtServicePort {
     private long expirationTime;
 
     @Override
-    public String generarToken(Usuario user) {
+    public String generateToken(User user) {
         return Jwts.builder()
                 .header().add("typ", "JWT").and()
                 .subject(user.getUsername())
-                .claim("cuentaId", user.getCuentaId())
+                .claim("cuentaId", user.getAccountId())
                 .claim("ts_created", user.getTsCrea().toString())
                 .claim("permisos", List.of("ADMIN", "USER"))
                 .issuedAt(new Date())
@@ -40,7 +38,7 @@ public class JwtServiceAdapter implements JwtServicePort {
     }
 
     @Override
-    public Claims validarToken(String token) {
+    public Claims validateToken(String token) {
         try {
             return Jwts.parser()
                     .verifyWith(getSigningKey())

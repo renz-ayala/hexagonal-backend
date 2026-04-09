@@ -1,9 +1,9 @@
 package gg.users.userapps.domain.ports.out;
 
-import gg.users.userapps.domain.model.Usuario;
+import gg.users.userapps.domain.model.User;
 import io.jsonwebtoken.Claims;
 
 public interface JwtServicePort {
-    String generarToken(Usuario user);
-    Claims validarToken(String token);
+    String generateToken(User user);
+    Claims validateToken(String token);
 }
